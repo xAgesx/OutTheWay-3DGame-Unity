@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections ;
 
 public class GameManager : MonoBehaviour{
     
@@ -19,5 +20,7 @@ public class GameManager : MonoBehaviour{
             lastTriggeredFlag = score  ;
             spawner.spawnTimer -= 0.5f;
         }
+
+        
     }
 }

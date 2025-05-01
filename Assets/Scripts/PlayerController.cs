@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour{
     }
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.CompareTag("Powerup")){
+            
+            collision.transform.GetComponent<Powerup>().Activate(this.gameObject);
             Destroy(collision.gameObject);
         }
     }
