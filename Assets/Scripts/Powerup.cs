@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Powerup : MonoBehaviour{
     
@@ -9,6 +10,8 @@ public class Powerup : MonoBehaviour{
     public string powerupType ;
     public GameObject activeShieldPrefab ;
     GameObject activeShield;
+    [SerializeField]
+    public static List<GameObject> obtainedPowerups = new List<GameObject>(); 
     void Start(){
         powerupRb = GetComponent<Rigidbody>();
         powerupCollider = GetComponent<Collider>();
@@ -23,7 +26,7 @@ public class Powerup : MonoBehaviour{
         }
     }
     public void Activate(GameObject player){
-        switch (powerupType){
+        switch (obtainedPowerups[0].GetComponent<Powerup>().powerupType){
             case "Shield" : ActivateShield(player);break;
             case "SlowMotion" : Debug.Log("SlowMotion");break;
             default : Debug.Log("Nothing");break;
@@ -33,7 +36,7 @@ public class Powerup : MonoBehaviour{
     }
     async void ActivateShield(GameObject player){
 
-        activeShield = Instantiate(activeShieldPrefab,player.transform.position + new Vector3(0,2,1),Quaternion.Euler(new Vector3(0,180,0)));
+        activeShield = Instantiate(activeShieldPrefab,player.transform.position + new Vector3(0,1,1),Quaternion.Euler(new Vector3(0,180,0)));
         await Task.Delay(3000);
         DeactivateShield();
         
@@ -41,6 +44,12 @@ public class Powerup : MonoBehaviour{
     void DeactivateShield(){
         
         Destroy(activeShield);
+    }
+    public void ObtainPowerup(GameObject type){
+            obtainedPowerups.Add(type);
+            Debug.Log("added");
+            Debug.Log(string.Join(", ", obtainedPowerups));
+        
     }
     
 

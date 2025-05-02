@@ -30,13 +30,27 @@ public class PlayerController : MonoBehaviour{
             playerRb.position = new Vector3(7,playerPos.y,playerPos.z);
 
         }
+       //Use Powerup
+        if(Input.GetButtonDown("Jump") && Powerup.obtainedPowerups.Count > 0){
+            Powerup.obtainedPowerups[0].GetComponent<Powerup>().Activate(this.gameObject);
+        }
         
     }
     void OnCollisionEnter(Collision collision){
+        Powerup powerupScript = collision.transform.GetComponent<Powerup>();
         if(collision.gameObject.CompareTag("Powerup")){
             
-            collision.transform.GetComponent<Powerup>().Activate(this.gameObject);
-            Destroy(collision.gameObject);
+            if(Powerup.obtainedPowerups.Count < 3 ){
+                powerupScript.ObtainPowerup(collision.gameObject);
+                collision.gameObject.GetComponent<Collider>().enabled = false;
+                collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                Debug.Log(Powerup.obtainedPowerups.Count);
+                
+            }else{
+                Destroy(collision.gameObject);
+            }
+             
+            
         }
     }
 }

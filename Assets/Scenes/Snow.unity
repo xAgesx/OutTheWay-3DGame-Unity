@@ -1013,8 +1013,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1591679257492620092, guid: 5e46d75e4f45b8c4586a8093df69f677, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1793839745649323726, guid: 5e46d75e4f45b8c4586a8093df69f677, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793839745649323726, guid: 5e46d75e4f45b8c4586a8093df69f677, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234980430822505654, guid: 5e46d75e4f45b8c4586a8093df69f677, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8643981542476710862, guid: 5e46d75e4f45b8c4586a8093df69f677, type: 3}
