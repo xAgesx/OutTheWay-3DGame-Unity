@@ -17,7 +17,7 @@ public class snowBall : MonoBehaviour{
         
     }
     public void ScaleUp(){
-        transform.localScale += offset ;
+        transform.localScale += offset * Time.deltaTime * 100;
 
     }
 }

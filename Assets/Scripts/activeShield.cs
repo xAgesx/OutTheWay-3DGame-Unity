@@ -9,6 +9,7 @@ public class activeShield : MonoBehaviour{
 
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.CompareTag("Obstacle")){
+            Powerup.powerupActive = false;
             Destroy(collision.gameObject);
         }    
         

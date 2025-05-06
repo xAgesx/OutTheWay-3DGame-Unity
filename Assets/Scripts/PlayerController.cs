@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour{
 
         }
        //Use Powerup
-        if(Input.GetButtonDown("Jump") && Powerup.obtainedPowerups.Count > 0){
+        if(Input.GetButtonDown("Jump") && Powerup.obtainedPowerups.Count > 0 && !Powerup.powerupActive){
             Powerup.obtainedPowerups[0].GetComponent<Powerup>().Activate(this.gameObject);
         }
         
