@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour{
     void SpawnSnowBall(){
 
         spawnPos = new Vector3(Random.Range(-6,6),15,15);
-        Instantiate(snowBallPrefab,spawnPos,transform.rotation);
+        Instantiate(snowBallPrefab,spawnPos,transform.rotation);    
     }
     void SpawnObstacle(){
         int obstaclesNb = Random.Range(1,4);
