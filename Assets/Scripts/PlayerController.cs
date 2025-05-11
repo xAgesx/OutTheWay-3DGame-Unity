@@ -34,6 +34,10 @@ public class PlayerController : MonoBehaviour{
         if(Input.GetButtonDown("Jump") && Powerup.obtainedPowerups.Count > 0 && !Powerup.powerupActive){
             Powerup.obtainedPowerups[0].GetComponent<Powerup>().Activate(this.gameObject);
         }
+        //Pause
+        if(Input.GetButtonDown("Cancel")){
+            GameObject.Find("GameManager").GetComponent<GameManager>().Pause();
+        }
         
     }
     void OnCollisionEnter(Collision collision){
