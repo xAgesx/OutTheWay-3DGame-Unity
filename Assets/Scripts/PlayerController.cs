@@ -55,6 +55,12 @@ public class PlayerController : MonoBehaviour{
             }
              
             
+        }else if(collision.gameObject.CompareTag("Obstacle")){
+            Invoke("Restart",1f);
+            
         }
+    }
+    void Restart(){
+        GameObject.Find("GameManager").GetComponent<GameManager>().Restart();
     }
 }
