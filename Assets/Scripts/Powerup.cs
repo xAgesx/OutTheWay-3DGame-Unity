@@ -13,8 +13,10 @@ public class Powerup : MonoBehaviour{
     public GameObject player ;
     GameObject activeShield;
     [SerializeField]
-    public static List<GameObject> obtainedPowerups = new List<GameObject>(); 
+    public static List<GameObject> obtainedPowerups ; 
     public static Boolean powerupActive ;
+    public GameObject slowmoAnim ;
+    public GameObject shieldAnim ;
 
     void Start(){
         powerupActive = false;
@@ -45,14 +47,17 @@ public class Powerup : MonoBehaviour{
     async void ActivateShield(GameObject player){
     
         activeShield = Instantiate(activeShieldPrefab,player.transform.position + new Vector3(0,1,1),Quaternion.Euler(new Vector3(0,180,0)));
+        GameObject shieldObject = Instantiate(shieldAnim, player.transform.position + new Vector3(0, 1, 1), Quaternion.Euler(new Vector3(0, 180, 0)));
         await Task.Delay(3000);
+        DestroyImmediate(shieldObject);
         DeactivateShield();
-        
+       
         
     }
     void DeactivateShield(){
         
-        Destroy(activeShield);
+        DestroyImmediate(activeShield);
+        
         powerupActive = false;
     }
     public void ObtainPowerup(GameObject type){
@@ -69,12 +74,14 @@ public class Powerup : MonoBehaviour{
         Time.timeScale = 0.2f;
         playerController.speed *= 4 ;
         playerAnim.speed = 4 ;
+        GameObject slowMotionObject = Instantiate(slowmoAnim, player.transform.position + new Vector3(0, 1, 1), Quaternion.Euler(new Vector3(0, 180, 0)));
         
         //Deactivate after delay
         await Task.Delay(2000);
         Time.timeScale = 1f;
         playerController.speed /= 4 ;
         playerAnim.speed = 1 ;
+        DestroyImmediate(slowMotionObject);
         powerupActive = false;
         
     }

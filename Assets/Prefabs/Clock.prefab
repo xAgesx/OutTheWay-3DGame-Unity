@@ -114,7 +114,8 @@ MonoBehaviour:
   powerupType: SlowMotion
   activeShieldPrefab: {fileID: 0}
   player: {fileID: 0}
-  grayOverlay: {fileID: 0}
+  slowmoAnim: {fileID: 168848, guid: 5054d884a1ce12f41a1ce72e0fd8e438, type: 3}
+  shieldAnim: {fileID: 0}
 --- !u!95 &-7394272572208312731
 Animator:
   serializedVersion: 7

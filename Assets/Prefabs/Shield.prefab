@@ -189,6 +189,9 @@ MonoBehaviour:
   speed: -200
   powerupType: Shield
   activeShieldPrefab: {fileID: 4617670335329091469, guid: 744f215065c3ad84fa6ba5a10052b939, type: 3}
+  player: {fileID: 0}
+  slowmoAnim: {fileID: 172466, guid: 063a880d604169541adf7bd608393d89, type: 3}
+  shieldAnim: {fileID: 128288, guid: c94026c50227a3b4ea3c236231938b3b, type: 3}
 --- !u!65 &6784010975959656863
 BoxCollider:
   m_ObjectHideFlags: 0

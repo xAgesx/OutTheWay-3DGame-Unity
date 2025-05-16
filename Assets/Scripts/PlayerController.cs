@@ -56,7 +56,9 @@ public class PlayerController : MonoBehaviour{
              
             
         }else if(collision.gameObject.CompareTag("Obstacle")){
+            Powerup.obtainedPowerups.Clear();
             Invoke("Restart",1f);
+            
             
         }
     }
