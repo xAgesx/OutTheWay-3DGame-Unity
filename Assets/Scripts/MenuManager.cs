@@ -1,18 +1,43 @@
 using UnityEngine;
 using UnityEngine.SceneManagement ;
 
-public class MenuManager : MonoBehaviour{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start(){
-        
+public class MenuManager : MonoBehaviour {
+    public static int previousSceneIndex;
+    public GameObject submitButton;
+    
+    public void Start() {
+        if (SceneManager.GetActiveScene().buildIndex != 2) {
+            previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        } else {
+            //update LeaderBoard scene based on previousScene(Menu / Game) to add a submit button
+            if (previousSceneIndex == 1) {
+                if (submitButton != null) {
+                    submitButton.SetActive(true);
+                    Debug.Log("not null");
+                }
+
+                Debug.Log("previousScene");
+            }
+        }
     }
 
-    // Update is called once per frame
-    public void Quit(){
+
+    public void Quit() {
         Application.Quit();
         Debug.Log("Quit");
     }
-    public void StartGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    public void StartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    //Load Leaderboard scene
+    public void Leaderboard() {
+        SceneManager.LoadScene(2);
+        
+    }
+    public void Back() {
+        SceneManager.LoadScene(previousSceneIndex);
+    }
+
+    
 }
