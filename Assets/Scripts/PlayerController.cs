@@ -83,19 +83,26 @@ public class PlayerController : MonoBehaviour {
     IEnumerator CheckLeaderboard() {
         string webURL = "http://dreamlo.com/lb/";
         string publicCode = "0TrV-wKaEkWx8ocKqNbGoAoFEqax_hN0OgBB8cLn1Myw";
+        string proxy = "https://penguin-avalanche-proxy.thamer-douss.workers.dev/?url=";
 
-        string url = $"{webURL}{publicCode}/json";
+        string url = $"{proxy}{webURL}{publicCode}/json";
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
         if (www.result == UnityWebRequest.Result.Success) {
-            Boolean response = CheckTop5(www.downloadHandler.text);
-            if (response) {
-                Invoke("DisplayLeaderboard", 1f);
+            try {
+                Boolean response = CheckTop5(www.downloadHandler.text);
+                if (response) {
+                    Invoke("DisplayLeaderboard", 1f);
+                }
+            } catch (Exception e) {
+                Debug.Log(e.Message);
             }
             
+
         } else {
             Debug.LogError("Error fetching scores: " + www.error);
         }
+        Debug.Log("Leaderboard checked");
 
     }
     Boolean CheckTop5(string data) {

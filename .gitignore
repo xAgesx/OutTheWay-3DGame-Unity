@@ -14,6 +14,7 @@ UserSettings/
 *.user
 .DS_Store
 Thumbs.db
+Leaderboard-Unity.txt
 
 # Ignore Unity Collab files
 .collabignore

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement ;
 public class MenuManager : MonoBehaviour {
     public static int previousSceneIndex;
     public GameObject submitButton;
-    
+
     public void Start() {
         if (SceneManager.GetActiveScene().buildIndex != 2) {
             previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -33,10 +33,13 @@ public class MenuManager : MonoBehaviour {
     //Load Leaderboard scene
     public void Leaderboard() {
         SceneManager.LoadScene(2);
-        
+
     }
     public void Back() {
         SceneManager.LoadScene(previousSceneIndex);
+    }
+    public void BackToMenu() {
+        SceneManager.LoadScene(0);
     }
 
     

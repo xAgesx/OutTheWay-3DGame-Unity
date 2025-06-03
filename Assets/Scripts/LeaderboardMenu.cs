@@ -14,6 +14,7 @@ public class LeaderboardMenu : MonoBehaviour
     public TextMeshProUGUI inputName;
 
     public string webURL = "http://dreamlo.com/lb/";
+    public string proxy = "https://penguin-avalanche-proxy.thamer-douss.workers.dev/?url=";
 
     public List<TextMeshProUGUI> names;
     public List<TextMeshProUGUI> scores;
@@ -36,7 +37,7 @@ public class LeaderboardMenu : MonoBehaviour
     }
     IEnumerator UploadScore(string name, int score)
     {
-        string url = $"{webURL}{publicCode}/add/{name}/{score}";
+        string url = $"{proxy}{webURL}{publicCode}/add/{name}/{score}";
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
 
@@ -53,7 +54,7 @@ public class LeaderboardMenu : MonoBehaviour
     // Example: Fetch scores (optional)
     IEnumerator DownloadScores()
     {
-        string url = $"{webURL}{publicCode}/json";
+        string url = $"{proxy}{webURL}{publicCode}/json";
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
 
