@@ -1,0 +1,23 @@
+=-=-=-=-=-=-=
+NEW Game IDEA : PenguinAvalanche
+ 
+a player trying to dodge rolling obstacles coming from a slope , move left and right to dodge , use powerUps (jump , SlowMo , lives ...) in order to survive 
+as long as possible and get a new high score .
+
+>- Make character using rigidbody ( movement and collision ) 
+>- Make Ground ( slope and add invisible edges for obstacles )
+>- Generate random obstacles rolling down (make obstacles scale up as they rolldown)
+>- Add PowerUps 
+>- Add Death ( maybe Time stops )
+>- Add sfx and Animations + Textures and mats 
+>- Add online Leaderboard
+ - Add more maps
+ - Add more characters 
+ - Add more powerups
+>- Fix Bugs ( online only )
+ - Clean code ( Add try catch , refactor functions , remove Debugging Logs)
+
+=-=-=-= Release =-=-=-=
+- fix pause after slowmotion , the player gets too fast
+>- powerups don't stop
+>- quit in pause menu then start game won't work , deltaTime = 0 

@@ -24,3 +24,4 @@ Extra/
 Extra.meta
 webGL/
 Builds/webGL
+webGL.wasm

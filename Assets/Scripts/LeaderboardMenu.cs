@@ -9,7 +9,7 @@ using System.Linq;
 public class LeaderboardMenu : MonoBehaviour
 {
     [Header("Dreamlo Settings")]
-    private string publicCode;
+    private string publicCode = "0TrV-wKaEkWx8ocKqNbGoAoFEqax_hN0OgBB8cLn1Myw";
     public int inputScore;
     public TextMeshProUGUI inputName;
 
@@ -23,21 +23,22 @@ public class LeaderboardMenu : MonoBehaviour
     public void Start()
     {	
 		inputScore = PlayerPrefs.GetInt("LastScore", 0);
-        publicCode = "0TrV-wKaEkWx8ocKqNbGoAoFEqax_hN0OgBB8cLn1Myw";
         StartCoroutine(DownloadScores());
     }
 
 
 
-    public void SubmitScore()
-    {
+    public void SubmitScore(){
+        inputScore = PlayerPrefs.GetInt("LastScore", 0);
         StartCoroutine(UploadScore(inputName.text, inputScore));
-        StartCoroutine(DownloadScores());
+        
         FindAnyObjectByType<MenuManager>().GetComponent<MenuManager>().Back();
     }
     IEnumerator UploadScore(string name, int score)
     {
-        string url = $"{proxy}{webURL}{publicCode}/add/{name}/{score}";
+        Debug.Log("Uploading ...");
+        string url = $"{proxy}{webURL}{publicCode}/add/{name}/"+ score.ToString();
+        Debug.Log(url);
         UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
 
@@ -77,7 +78,6 @@ public class LeaderboardMenu : MonoBehaviour
         {
             //JSON parsing
             var entries = json.Split(new[] { "{\"name\":" }, System.StringSplitOptions.RemoveEmptyEntries).Skip(1).Take(5).ToList();
-            Debug.Log(entries);
             for (int i = 0; i < entries.Count && i < 5; i++)
             {
                 string[] parts = entries[i].Split(',');

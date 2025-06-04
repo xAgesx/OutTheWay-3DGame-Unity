@@ -92,7 +92,8 @@ public class PlayerController : MonoBehaviour {
             try {
                 Boolean response = CheckTop5(www.downloadHandler.text);
                 if (response) {
-                    Invoke("DisplayLeaderboard", 1f);
+                    Debug.Log("TO UPLOAD");
+                    Invoke("DisplayLeaderboard", 0.2f);
                 }
             } catch (Exception e) {
                 Debug.Log(e.Message);
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour {
         int lastIndex = 4;
         string[] parts = entries[lastIndex].Split(",");
         string minScore = parts[1].Split(':')[1].Trim('"');
-        Debug.Log("Entries YAYYY: " + minScore);
+        
         if (GameObject.Find("GameManager").GetComponent<GameManager>().score > int.Parse(minScore)) {
             return true;
         }

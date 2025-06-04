@@ -14,10 +14,10 @@ public class MenuManager : MonoBehaviour {
             if (previousSceneIndex == 1) {
                 if (submitButton != null) {
                     submitButton.SetActive(true);
-                    Debug.Log("not null");
+                    
                 }
 
-                Debug.Log("previousScene");
+                
             }
         }
     }
@@ -29,6 +29,7 @@ public class MenuManager : MonoBehaviour {
     }
     public void StartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
     //Load Leaderboard scene
     public void Leaderboard() {
