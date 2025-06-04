@@ -19,8 +19,9 @@ Leaderboard-Unity.txt
 # Ignore Unity Collab files
 .collabignore
 
+#ignore webGL build
+.wasm
 #Extra Assets
 Extra/
 Extra.meta
-Builds/
-Builds/webGL/Build/webGL.wasm
+Builds/webGL
