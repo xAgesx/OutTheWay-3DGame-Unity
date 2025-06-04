@@ -22,6 +22,5 @@ Leaderboard-Unity.txt
 #Extra Assets
 Extra/
 Extra.meta
-webGL/
-Builds/webGL
-webGL.wasm
+Builds/
+Builds/webGL/Build/webGL.wasm
