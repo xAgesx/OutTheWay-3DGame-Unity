@@ -20,7 +20,7 @@ Leaderboard-Unity.txt
 .collabignore
 
 #ignore webGL build
-.wasm
+*.wasm
 #Extra Assets
 Extra/
 Extra.meta
